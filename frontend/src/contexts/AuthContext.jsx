@@ -20,7 +20,7 @@ export const AuthProvider = ({ children }) => {
         setToken(storedToken);
       } catch (error) {
         console.error("Failed to parse stored user or token:", error);
-
+        
         localStorage.removeItem('token');
         localStorage.removeItem('user');
       }
@@ -42,12 +42,12 @@ export const AuthProvider = ({ children }) => {
   const login = async (email, password) => {
     try {
       const data = await authService.login({ email, password });
-      setUser({ _id: data._id, email: data.email });
+      setUser({ _id: data._id, email: data.email }); 
       setToken(data.token);
       navigate('/my-sessions');
       return { success: true };
     } catch (error) {
-      console.error("Login failed:", error.response?.data?.message || error.message || 'An unknown error occurred.');
+      console.error("Login failed:", error.response?.data?.message || error.message);
       return { success: false, message: error.response?.data?.message || 'Login failed' };
     }
   };
@@ -57,10 +57,10 @@ export const AuthProvider = ({ children }) => {
       const data = await authService.register({ email, password });
       setUser({ _id: data._id, email: data.email });
       setToken(data.token);
-      navigate('/my-sessions');
+      navigate('/my-sessions'); 
       return { success: true };
     } catch (error) {
-      console.error("Registration failed:", error.response?.data?.message || error.message || 'An unknown error occurred.');
+      console.error("Registration failed:", error.response?.data?.message || error.message);
       return { success: false, message: error.response?.data?.message || 'Registration failed' };
     }
   };
