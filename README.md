@@ -50,23 +50,8 @@ git clone https://github.com/yashwanth04112005/wellness-link
 cd wellness-link
 
 ```
-### 2.Backend Setup
-
+### 2. Run the Application
 ```bash
-cd backend
-npm install
-```
-
-### 3.Run Backend
-```bash
-npm run dev
-```
-### 4.Frontend Setup
-```bash
-cd ../frontend 
-npm install
-```
-### 5.Run Frontend 
-```bash
-npm run dev
+npm run build
+npm start
 ```
