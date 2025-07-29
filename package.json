@@ -1,0 +1,13 @@
+{
+  "name": "wellness",
+  "version": "1.0.0",
+  "description": "WellnessLink is a full-stack web application designed to allow users to securely register, log in, view public wellness sessions, and manage their own custom wellness sessions. Users can draft and publish their sessions, with an auto-save feature for convenience.",
+  "main": "index.js",
+  "scripts": {
+    "build": "npm install --prefix backend && npm install --prefix frontend && npm run build --prefix frontend",
+    "start": "npm run start --prefix backend"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
