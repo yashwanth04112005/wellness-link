@@ -38,6 +38,27 @@ WellnessLink is a full-stack web application designed to allow users to securely
 * **Axios:** Promise-based HTTP client for API requests.
 * **useDebounce (Custom Hook):** For implementing auto-save functionality.
 
+## Routes & API Documentation
+
+All API endpoints are prefixed with `/api`.
+`(Auth)` denotes endpoints requiring a JWT in the `Authorization: Bearer <token>` header.
+
+### Authentication Endpoints (`/api/auth`)
+
+| Endpoint           | Method | Description                 | Authentication |
+| :----------------- | :----- | :-------------------------- | :------------- |
+| `/api/auth/register` | `POST` | Register new user.          | None           |
+| `/api/auth/login`    | `POST` | Login user, get JWT.        | None           |
+| `/api/auth/profile`  | `GET`  | Get authenticated user profile. | (Auth)         |
+
+### Session Endpoints (`/api/sessions`)
+
+| Endpoint                          | Method   | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | Authentication      |
+| :-------------------------------- | :------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------ |
+| `/api/sessions`                   | `GET`    | Get all **publicly published** sessions. (Optional query params: `search`, `tags`).                                                                                                                                                                                                                                                                                                                                                                                                                   | None                |
+| `/api/sessions/my`                | `GET`    | Get all sessions by authenticated user (drafts & published). (Optional query params: `status`, `startDate`, `endDate`, `search`).                                                                                                                                                                                                                                                                                                                                                                | (Auth)              |
+| `/api/sessions`                   | `POST`   | Create a new session. (Can be `draft` or `published`).                                                                                                                                                                                                                                                                                                                                                                                                                                                 | (Auth)              |
+
 ## Setup Instructions
 
 Follow these steps to get the project up and running on your local machine.
